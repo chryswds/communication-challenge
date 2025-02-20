@@ -1,6 +1,7 @@
 package com.chrystian.notificatio_scheduling_api.infrastructure.entities;
 
 
+import com.chrystian.notificatio_scheduling_api.infrastructure.enums.StatusNotificationEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,7 +26,21 @@ public class Scheduling {
 
     private String phoneRecipient;
 
+    private LocalDateTime dateHourSent;
+
     private LocalDateTime dateHourScheduling;
+
+    private LocalDateTime dateHourChanges;
+
+    private String message;
+
+    private StatusNotificationEnum statusNotification;
+
+    @PrePersist
+    private void prePersist() {
+        this.dateHourScheduling = LocalDateTime.now();
+        this.statusNotification = StatusNotificationEnum.SCHEDULED;
+    }
 
 
 }
