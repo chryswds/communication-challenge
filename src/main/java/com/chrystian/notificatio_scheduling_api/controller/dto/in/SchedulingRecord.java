@@ -1,4 +1,4 @@
-package com.chrystian.notificatio_scheduling_api.controller.dto;
+package com.chrystian.notificatio_scheduling_api.controller.dto.in;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
